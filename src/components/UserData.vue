@@ -25,33 +25,34 @@ export default {
 </script>
 
 <template>
-    <section class="user-data">
-        <div class=form-element>
-            <label for="username">Username</label>
-            <input
-                type="text"
-                name="username"
-                @input="updateUsername"
-                :value="username"
-                placeholder="Enter your name"
-                autofocus="autofocus" />
-        </div>
-        <div class=form-element>
-            <label for="ageAsStr">Age</label>
-            <input
-                type="text"
-                name="ageAsStr"
-                placeholder="Enter your age"
-                @input="updateAge"
-                ref="ageField"
-                :value="ageAsStr" />
-        </div>
-    </section>
+    <div>
+        <section>
+            <div>
+                <label for="username">Username</label>
+                <input
+                    type="text"
+                    name="username"
+                    @input="updateUsername"
+                    :value="username"
+                    placeholder="Enter your name"
+                    autofocus="autofocus" />
+            </div>
+            <div>
+                <label for="ageAsStr">Age</label>
+                <input
+                    type="text"
+                    name="ageAsStr"
+                    placeholder="Enter your age"
+                    @input="updateAge"
+                    ref="ageField"
+                    :value="ageAsStr" />
+            </div>
+        </section>
+    </div>
 </template>
 
 <style scoped>
-
-.user-data {
+section {
     display: flex;
 
     /* Styles as a flex container */
@@ -67,7 +68,7 @@ export default {
     flex: 0 0 40%; /* grow, shrink, basis ==> max_size, min_size, ideal_size */
 }
 
-.user-data>.form-element {
+section>div {
     display: flex;
     /* Styles as a flex container */
     flex-direction: column;
@@ -79,7 +80,7 @@ export default {
 
 }
 
-.user-data input {
+section input {
     font-family: inherit;
     min-width: 20rem;
 }

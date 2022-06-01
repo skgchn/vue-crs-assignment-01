@@ -23,11 +23,14 @@
 </script>
 
 <template>
-    <section class="app">
-        <active-user :username="username" :age="age"></active-user>
-        <user-data @user-info-changed="displayUser"></user-data>
-    </section>
+    <div>
+        <section>
+            <active-user :username="username" :age="age"></active-user>
+            <user-data @user-info-changed="displayUser"></user-data>
+        </section>
+    </div>
 </template>
+
 <style>
     :root {
         font-family: 'Open Sans', Helvetica, sans-serif;
@@ -36,10 +39,14 @@
     *, *:before, *:after {
         font-family: inherit;
         font-size: inherit;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
     }
 </style>
+
 <style scoped>
-    section.app {
+    section {
         margin: 2rem auto;
         display: flex;
         width: 80%;

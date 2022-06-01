@@ -20,13 +20,15 @@ export default {
 </script>
 
 <template>
-<section class="active-user">
-    <p> {{ username }} </p>
-    <p> {{ displayAge }} </p>
-</section>
+    <div>
+        <section>
+            <p> {{ username }} </p>
+            <p> {{ displayAge }} </p>
+        </section>
+    </div>
 </template>
 <style scoped>
-    .active-user {
+    section {
         text-align: center;
         font-size: 2rem;
         display: flex;
@@ -44,16 +46,16 @@ export default {
         /* Styles as a flex child item */
         flex: 0 0 40%; /* grow, shrink, basis ==> see as max_size, min_size, ideal_size */
     }
-    .active-user>p {
+    section>p {
         padding: 2rem 0;
         margin: 0;
-        height: 2rem;
+        height: 6.3125rem;
         min-width: 30rem;
     }
-    .active-user>p:first-child {
+    section>p:first-child {
         background-color: orangered;
     }
-    .active-user>p:last-child {
+    section>p:last-child {
         background-color: pink;
     }
 </style>
