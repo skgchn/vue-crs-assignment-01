@@ -44,7 +44,7 @@ export default {
         row-gap: 1rem;
     }
     .active-user>p {
-        height: 6.3125rem;
+        min-height: 6.3125rem;
         line-height: 6.3125rem;
         width: 100%;
         border-radius: 5px;
