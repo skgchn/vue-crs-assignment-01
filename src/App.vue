@@ -24,18 +24,17 @@
 </script>
 
 <template>
-    <div>
+        <section class='app'>
+            <active-user :username="username" :age="age"></active-user>
+            <user-data @user-info-changed="displayUser"></user-data>
+        </section>
+
         <div v-if="debugFlexbox" class='container'>
             <div class='child child1'>1</div>
             <div class='child child2'>2</div>
             <div class='child child3'>3</div>
             <div class='child child4'>4</div>
         </div>
-        <section>
-            <active-user :username="username" :age="age"></active-user>
-            <user-data @user-info-changed="displayUser"></user-data>
-        </section>
-    </div>
 </template>
 
 <style>
@@ -52,10 +51,10 @@
 </style>
 
 <style scoped>
-    section {
+    section.app {
         margin: 2rem auto;
         display: flex;
-        width: 80%;
+        width: 80vw;
         background: lightgray;
         padding: 1rem;
 

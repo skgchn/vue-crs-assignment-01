@@ -20,40 +20,39 @@ export default {
 </script>
 
 <template>
-    <div>
-        <section>
-            <p> {{ username }} </p>
-            <p> {{ displayAge }} </p>
+        <section class="active-user">
+            <p>{{ username }}</p>
+            <p>{{ displayAge }}</p>
         </section>
-    </div>
 </template>
 <style scoped>
-    section {
+    .active-user {
         text-align: center;
         font-size: 2rem;
-        display: flex;
+        width: 48%;
+
+        /* Styles as a flex child item */
+        flex: 1 1 auto; /* grow(yes), shrink(yes, default), basis ==> see as max_size, min_size, ideal_size */
 
         /* Styles as a flex container */
+        display: flex;
         flex-direction: column;
         justify-content: flex-start; /* Where to place the items in the container along the main axis */
         align-items: flex-end; /* Decides how the items align to each other.
                                   Only when flex-wrap = nowrap, decides where to place the items
                                   in the container along the cross axis.*/
         row-gap: 1rem;
-
-        /* Styles as a flex child item */
-        flex: 0 0 40%; /* grow, shrink, basis ==> see as max_size, min_size, ideal_size */
     }
-    section>p {
-        padding: 2rem 0;
-        margin: 0;
+    .active-user>p {
         height: 6.3125rem;
-        min-width: 30rem;
+        line-height: 6.3125rem;
+        width: 100%;
+        border-radius: 5px;
     }
-    section>p:first-child {
+    .active-user>p:first-child {
         background-color: orangered;
     }
-    section>p:last-child {
+    .active-user>p:last-child {
         background-color: pink;
     }
 </style>

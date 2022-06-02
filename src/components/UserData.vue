@@ -25,8 +25,7 @@ export default {
 </script>
 
 <template>
-    <div>
-        <section>
+        <section class="user-data">
             <div>
                 <label for="username">Username</label>
                 <input
@@ -48,30 +47,31 @@ export default {
                     :value="ageAsStr" />
             </div>
         </section>
-    </div>
 </template>
 
 <style scoped>
-section {
-    display: flex;
+.user-data {
+    width: 48%; /* width 48% of parent */
+
+    /* Styles as a flex child item */
+    flex: 1 1 auto; /* grow(yes), shrink(yes, default), basis ==> max_size, min_size, ideal_size */
 
     /* Styles as a flex container */
+    display: flex;
     flex-direction: column;
     justify-content: flex-start; /* Where to place the items in the container along the main axis */
-    align-items: flex-start; /* Decides how the items align to each other.
+    align-items: center; /* Decides how the items align to each other.
                                 Only when flex-wrap = nowrap, decides where to place the items
                                 in the container along the cross axis.*/
     row-gap: 1rem;
-
-
-    /* Styles as a flex child item */
-    flex: 0 0 40%; /* grow, shrink, basis ==> max_size, min_size, ideal_size */
 }
 
-section>div {
-    display: flex;
+.user-data>div {
+    width: 98%; /* These two together look good after having wrapped */
+    padding: 0 1%; /* 98% + 1% left padding + 1% right padding = 100% width */
 
     /* Styles as a flex container */
+    display: flex;
     flex-direction: column;
     justify-content: flex-start; /* Where to place the items in the container along the main axis */
     align-items: flex-start; /* Decides how the items align to each other.
@@ -80,9 +80,7 @@ section>div {
     row-gap: 5px;
 }
 
-section input {
-    font-family: inherit;
-    min-width: 20rem;
+.user-data>div>input {
+    width: 100%;
 }
-
 </style>
