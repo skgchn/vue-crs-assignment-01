@@ -10,7 +10,8 @@
         data() {
             return {
                 username: '',
-                age: -1
+                age: -1,
+                debugFlexbox: false
             }
         },
         methods: {
@@ -24,6 +25,12 @@
 
 <template>
     <div>
+        <div v-if="debugFlexbox" class='container'>
+            <div class='child child1'>1</div>
+            <div class='child child2'>2</div>
+            <div class='child child3'>3</div>
+            <div class='child child4'>4</div>
+        </div>
         <section>
             <active-user :username="username" :age="age"></active-user>
             <user-data @user-info-changed="displayUser"></user-data>
@@ -34,10 +41,9 @@
 <style>
     :root {
         font-family: 'Open Sans', Helvetica, sans-serif;
-        font-size: 16px;
     }
+
     *, *:before, *:after {
-        font-family: inherit;
         font-size: inherit;
         margin: 0;
         padding: 0;
@@ -54,11 +60,46 @@
         padding: 1rem;
 
         /* Styles as a flex container */
-        justify-content: center; /* where to place all the items along the main axis */
-        align-items: flex-start; /* where to place all the items along the cross axis */
-        align-content: flex-start; /* when wrapped, how should the items align to each other */
+        justify-content: center; /* Where to place the items in the container along the main axis */
+        flex-wrap: wrap;
+        align-content: flex-start; /* Only when flex-wrap = wrap. decides where to place the items
+                                        in the container along the cross axis */
+
+        align-items: flex-start; /* decides how the items align to each other.
+                                    Only when flex-wrap = nowrap, decides where to place the items
+                                    in the container along the cross axis.*/
         column-gap: 2rem;
         row-gap: 3rem;
-        flex-wrap: wrap;
     }
+    /*    .container {
+        width: 150px;
+        height: 150px;
+        border: 1px solid red;
+        display: flex;
+
+        justify-content: center;
+        align-items: baseline;
+        flex-wrap: wrap;
+        align-content: center;
+    }
+
+    .child {
+        width: 16px;
+        height: 16px;
+        border: 1px solid blue;
+        text-align: center;
+        line-height: 16px;
+        font-size: 0.5rem;
+    }
+
+    .child1 {
+        font-size: 0.5rem;
+    }
+
+    .child2 {
+        height: 20px;
+        width: 20px;
+        line-height: 20px;
+        font-size: 1rem;
+    }*/
 </style>

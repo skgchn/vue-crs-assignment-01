@@ -34,14 +34,12 @@ export default {
         display: flex;
 
         /* Styles as a flex container */
-        /* The align-items property of flex-box aligns the items inside a flex container
-           along the cross axis just like justify-content does along the main axis.*/
         flex-direction: column;
-        justify-content: flex-start; /* where to place all the items along the main axis */
-        align-items: flex-end; /* where to place all the items along the main axis. */
-        align-content: flex-end; /* when wrapped, how should the items align to each other */
+        justify-content: flex-start; /* Where to place the items in the container along the main axis */
+        align-items: flex-end; /* Decides how the items align to each other.
+                                  Only when flex-wrap = nowrap, decides where to place the items
+                                  in the container along the cross axis.*/
         row-gap: 1rem;
-        flex-wrap: nowrap;
 
         /* Styles as a flex child item */
         flex: 0 0 40%; /* grow, shrink, basis ==> see as max_size, min_size, ideal_size */

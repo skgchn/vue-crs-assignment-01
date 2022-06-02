@@ -57,11 +57,11 @@ section {
 
     /* Styles as a flex container */
     flex-direction: column;
-    justify-content: flex-start; /* where to place all the items along the main axis */
-    align-items: flex-start; /* where to place all the items along the cross axis. */
-    align-content: flex-start; /* when wrapped, how should the items align to each other */
+    justify-content: flex-start; /* Where to place the items in the container along the main axis */
+    align-items: flex-start; /* Decides how the items align to each other.
+                                Only when flex-wrap = nowrap, decides where to place the items
+                                in the container along the cross axis.*/
     row-gap: 1rem;
-    flex-wrap: nowrap;
 
 
     /* Styles as a flex child item */
@@ -70,14 +70,14 @@ section {
 
 section>div {
     display: flex;
+
     /* Styles as a flex container */
     flex-direction: column;
-    justify-content: flex-start; /* where to place all the items along the main axis */
-    align-items: flex-start; /* where to place all the items along the cross axis. */
-    align-content: flex-start; /* when wrapped, how should the items align to each other */
+    justify-content: flex-start; /* Where to place the items in the container along the main axis */
+    align-items: flex-start; /* Decides how the items align to each other.
+                                Only when flex-wrap = nowrap, decides where to place the items
+                                in the container along the cross axis.*/
     row-gap: 5px;
-    flex-wrap: nowrap;
-
 }
 
 section input {
