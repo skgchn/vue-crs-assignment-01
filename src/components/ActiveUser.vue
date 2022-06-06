@@ -1,4 +1,5 @@
 <script>
+import { computed } from 'vue';
 export default {
     props: {
         username: {
@@ -10,11 +11,18 @@ export default {
             required: true
         }
     },
-    computed: {
-        displayAge() {
-            return this.age < 0? '' : `${this.age} Years`;
+    setup (props) {
+        const displayAge = computed(() => props.age < 0? '' : `${props.age} Years`);
+        
+        return {
+            displayAge
         }
-    }
+    },
+    // computed: {
+    //     displayAge() {
+    //         return this.age < 0? '' : `${this.age} Years`;
+    //     }
+    // }
 };
 
 </script>

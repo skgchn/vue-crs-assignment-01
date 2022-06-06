@@ -1,4 +1,5 @@
 <script>
+    import { ref } from 'vue';
     import ActiveUser from './components/ActiveUser.vue'
     import UserData from './components/UserData.vue'
 
@@ -7,19 +8,36 @@
             ActiveUser,
             UserData
         },
-        data() {
+        setup() {
+            const username = ref('');
+            const age = ref(-1);
+            const debugFlexbox = ref(false);
+
+            function displayUser(uname, uage) {
+                username.value = uname;
+                age.value = uage;
+            }
+
             return {
-                username: '',
-                age: -1,
-                debugFlexbox: false
+                username,
+                age,
+                debugFlexbox,
+                displayUser
             }
         },
-        methods: {
-            displayUser(username, age) {
-                this.username = username;
-                this.age = age;
-            }
-        }
+        // data() {
+        //     return {
+        //         username: '',
+        //         age: -1,
+        //         debugFlexbox: false
+        //     }
+        // },
+        // methods: {
+        //     displayUser(username, age) {
+        //         this.username = username;
+        //         this.age = age;
+        //     }
+        // }
     }
 </script>
 

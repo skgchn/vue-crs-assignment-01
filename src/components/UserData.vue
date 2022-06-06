@@ -1,26 +1,54 @@
 <script>
+import { ref } from 'vue';
+
 export default {
-    data() {
-        return {
-            username: '',
-            ageAsStr: '',
-            age: -1
-        };
-    },
     emits: [ 'user-info-changed' ],
-    methods: {
-        updateUsername(event) {
-            this.username = event.target.value;
-            this.$emit('user-info-changed', this.username, this.age);
-        },
-        updateAge(event) {
-            const age = event.target.value.length === 0? -1 : Number(event.target.value);
-            this.age = isNaN(age) || age < 0? -1 : age;
-            this.ageAsStr = this.age < 0? '' : `${this.age}`;
-            this.$refs.ageField.value = (this.age < 0)? '' : this.age;
-            this.$emit('user-info-changed', this.username, this.age);
+    setup(_, {emit}) {
+        const username = ref('');
+        const ageAsStr = ref('');
+        const age = ref(-1);
+        const ageField = ref(null); // require a ref to the field to stop the user from typing non-digits or 00..
+
+        function updateUsername({target: {value: newName}}) {
+            username.value = newName;
+            emit('user-info-changed', username.value, age.value);
         }
-    }
+
+        function updateAge({target: {value: newAgeAsStr}}) {
+            const newAge = newAgeAsStr.length === 0? -1 : Number(newAgeAsStr);
+            age.value = isNaN(newAge) || newAge < 0? -1 : newAge;
+            ageField.value.value = ageAsStr.value = age.value < 0? '' : `${age.value}`;
+            emit('user-info-changed', username.value, age.value);
+        }
+        return {
+            username,
+            ageAsStr,
+            age,
+            ageField,
+            updateUsername,
+            updateAge
+        }
+    },
+    // data() {
+    //     return {
+    //         username: '',
+    //         ageAsStr: '',
+    //         age: -1
+    //     };
+    // },
+    // methods: {
+    //     updateUsername(event) {
+    //         this.username = event.target.value;
+    //         this.$emit('user-info-changed', this.username, this.age);
+    //     },
+    //     updateAge(event) {
+    //         const age = event.target.value.length === 0? -1 : Number(event.target.value);
+    //         this.age = isNaN(age) || age < 0? -1 : age;
+    //         this.ageAsStr = this.age < 0? '' : `${this.age}`;
+    //         this.$refs.ageField.value = (this.age < 0)? '' : this.age;
+    //         this.$emit('user-info-changed', this.username, this.age);
+    //     }
+    // }
 }
 </script>
 
